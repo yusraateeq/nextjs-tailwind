@@ -1,0 +1,7 @@
+.hero{
+    height: 100vh;
+    background: linear-gradient(rgba(43, 14, 2, 0.288), rgba(112, 26, 5, 0.322)), url(https://th.bing.com/th/id/R.7f5990fd65e82e94a300a0f76ee1cafd?rik=tgw98kM%2bUebnBw&pid=ImgRaw&r=0);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
