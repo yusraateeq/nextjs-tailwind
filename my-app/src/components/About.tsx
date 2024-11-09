@@ -38,7 +38,7 @@ const About = () => {
                         <h2 className='smmd:text-4xl smd:text-2xl font-bold mb-8 font-mono ml-4'>Unleash Your Adventure</h2>
                     </div>
 
-                    <p className='mb-4'>Whether you're seeking serene skies or adrenaline-packed adventures, Go Adventure is here to make your dreams a reality. From tranquil hot air balloon rides to thrilling outdoor explorations, our tours are crafted to bring out the adventurer in you. Discover awe-inspiring destinations and create stories worth sharing with Go Adventure.</p>
+                    <p className='mb-4'>Whether you are seeking serene skies or adrenaline-packed adventures, Go Adventure is here to make your dreams a reality. From tranquil hot air balloon rides to thrilling outdoor explorations, our tours are crafted to bring out the adventurer in you. Discover awe-inspiring destinations and create stories worth sharing with Go Adventure.</p>
                     <button className='text-center  border-2 border-gray-700 rounded-full w-36 h-12 mt-4 font-bold'>Find Out More</button>
                 </div>
 
