@@ -1,47 +1,5 @@
-// "use client"
-// import React, { useEffect, useState } from 'react'
-// import './Navbar.css'
-// import menu_icon from '../assets/menu.png'
-// import Image from 'next/image'
-
-// const Navbar = () => {
-
-//   const [sticky, setSticky] = useState(false);
-//   useEffect(() => {
-//     window.addEventListener('scroll', () => {
-//       window.scrollY > 50 ? setSticky(true) : setSticky(false);
-//     })
-//   }, [])
-
-//   const [mobileMenu, setMobileMenu] = useState(false);
-//   const toogleMenu = () => {
-//     mobileMenu ? setMobileMenu(false) : setMobileMenu(true)
-//   }
-
-//   return (
-//     <nav className={` ${sticky ? 'menu' : ''}`}>
-//       {/* <Image  src={logo} alt="" className='logo'/> */}
-//       <div className='w-full text-white py-1 pr-0 pl-0 fixed top-0 left-0 flex justify-between items-center z-10 bg-orange-900'>
-//         <li className='logo list-none ml-4 text-3xl font-bold'><a href="#hero">Go Adventure</a></li>
-//         <ul className={mobileMenu ? '' : 'hide-on-mobile'}>
-//           <li className='inline-block my-3 ml-5 mr-5 list-none'><a href="#hero">Home</a></li>
-//           <li className='inline-block my-3 ml-5 mr-5 list-none'><a href="#services">Our Specialist</a></li>
-//           <li className='inline-block my-3 ml-5 mr-5 list-none'><a href="#about">About Us</a></li>
-//           <li className='inline-block my-3 ml-5 mr-5 list-none'><a href="#gallery">Gallery</a></li>
-//           <li className='inline-block my-3 ml-5 mr-5 list-none'><a href="#contact">Contact</a></li>
-//         </ul>
-//         <Image src={menu_icon} alt="" className='menu-icon' onClick={toogleMenu} />
-//       </div>
-//     </nav>
-//   )
-// }
-
-// export default Navbar
-
-
 "use client";
 import React, { useEffect, useState } from 'react';
-import './Navbar.css';
 import menu_icon from '../assets/menu.png';
 import Image from 'next/image';
 
@@ -61,38 +19,45 @@ const Navbar = () => {
   const toggleMenu = () => setMobileMenu(prev => !prev);
 
   return (
-    <nav className={`navbar ${sticky ? 'menu' : ''}`}>
-      <div className="w-full text-white py-1 fixed top-0 left-0 flex justify-between items-center z-10 bg-orange-900">
-        <li className="logo list-none ml-4 text-3xl font-bold">
-          <a href="#hero">Go Adventure</a>
-        </li>
-        <ul className={`nav-links ${mobileMenu ? '' : 'hide-on-mobile'} flex`}>
-          <li className="inline-block my-3 ml-5 mr-5 list-none">
-            <a href="#hero">Home</a>
-          </li>
-          <li className="inline-block my-3 ml-5 mr-5 list-none">
-            <a href="#services">Our Specialist</a>
-          </li>
-          <li className="inline-block my-3 ml-5 mr-5 list-none">
-            <a href="#about">About Us</a>
-          </li>
-          <li className="inline-block my-3 ml-5 mr-5 list-none">
-            <a href="#gallery">Gallery</a>
-          </li>
-          <li className="inline-block my-3 ml-5 mr-5 list-none">
-            <a href="#contact">Contact</a>
-          </li>
+    <nav className={`w-full fixed top-0 left-0 z-10 ${sticky ? 'bg-orange-900' : 'bg-transparent'} transition-colors`}>
+      <div className="max-w-7xl mx-auto flex justify-between items-center py-4 px-6 md:px-8">
+        <a href="#hero" className="text-white text-2xl font-bold">Go Adventure</a>
+
+        {/* Desktop Menu */}
+        <ul className="hidden md:flex space-x-8 text-white">
+          <li><a href="#hero" className="hover:text-gray-300">Home</a></li>
+          <li><a href="#services" className="hover:text-gray-300">Our Specialist</a></li>
+          <li><a href="#about" className="hover:text-gray-300">About Us</a></li>
+          <li><a href="#gallery" className="hover:text-gray-300">Gallery</a></li>
+          <li><a href="#contact" className="hover:text-gray-300">Contact</a></li>
         </ul>
-        <Image
-          src={menu_icon}
-          alt="Menu icon"
-          className="menu-icon cursor-pointer mr-4"
-          onClick={toggleMenu}
-        />
+
+        {/* Mobile Menu Icon */}
+        <div className="md:hidden">
+          <Image
+            src={menu_icon}
+            alt="Menu icon"
+            width={30}
+            height={30}
+            className="cursor-pointer"
+            onClick={toggleMenu}
+            aria-label="Toggle mobile menu"
+          />
+        </div>
       </div>
+
+      {/* Mobile Menu */}
+      {mobileMenu && (
+        <div className="md:hidden bg-orange-900 text-white w-full px-6 py-4 space-y-4">
+          <a href="#hero" onClick={toggleMenu} className="block">Home</a>
+          <a href="#services" onClick={toggleMenu} className="block">Our Specialist</a>
+          <a href="#about" onClick={toggleMenu} className="block">About Us</a>
+          <a href="#gallery" onClick={toggleMenu} className="block">Gallery</a>
+          <a href="#contact" onClick={toggleMenu} className="block">Contact</a>
+        </div>
+      )}
     </nav>
   );
 };
 
 export default Navbar;
-
